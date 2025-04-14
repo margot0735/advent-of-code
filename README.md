@@ -1,11 +1,11 @@
-# Project name
+# Advent Code 2024
 
-Une brève description de ton projet.
+## Purpose
+The advent code 2024 is a programming challenge.
+It is part of the application process at Wandercraft for the R&D Controls and Machine Learning Engineering position.
+The challenge instructions are as following : 
+- Go to https://adventofcode.com/
+- Solve the challenges to obtain 2 stars on the first 4 levels
 
 ## Installation
-
-Instructions d'installation.
-
-## Use
-
-Comment utiliser ton projet.
+Instructions
