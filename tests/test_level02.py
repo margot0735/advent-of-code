@@ -24,7 +24,7 @@ def test_verify_level_difference():
     assert verify_level_difference(np.array([1, 2, 6])) == False
 
 def test_full_example(tmp_path):
-    # Création d'un fichier temporaire avec les données d'exemple
+    # Exemple given in the advend of code
     input_data = """
 7 6 4 2 1
 1 2 7 8 9
@@ -33,13 +33,12 @@ def test_full_example(tmp_path):
 8 6 4 4 1
 1 3 6 7 9
 """
-    # Utilisation de tmp_path pour créer un fichier temporaire
+    # Create a temporary file for the example
     input_file = tmp_path / "input.txt"
     input_file.write_text(input_data)
-
-    # Utiliser le fichier temporaire pour le test
+    # Verify the example statement
     assert main(str(input_file)) == 4
 
-# Lancer les tests avec pytest
+# Launch tests with pytest
 if __name__ == "__main__":
     pytest.main()
