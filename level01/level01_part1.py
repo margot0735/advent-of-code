@@ -7,12 +7,12 @@ import os
 import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils.tools import process_input
+from utils.tools import process_lists
 
 def main(input_path):
     # Load file
     input_path = "level01_input.txt"
-    list1, list2 = process_input(input_path)
+    list1, list2 = process_lists(input_path)
 
     # Pair numbers
     list1_ranked = np.sort(list1)
