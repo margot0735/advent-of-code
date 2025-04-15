@@ -22,7 +22,7 @@ def main(input_path):
 
     character = 0
     while character < len(instructions):
-        
+
         instruction_start = instructions.find("mul(",character)
         if instruction_start == -1:
             break
@@ -37,7 +37,6 @@ def main(input_path):
             x_string, y_string = number_sequence.split(',', 1)
             X = try_convert(x_string)
             Y = try_convert(y_string)
-            print(X,Y)
 
             if isinstance(X, (int, float)) and isinstance(Y, (int, float)):
                 valid_instructions.append(X * Y)
@@ -45,9 +44,8 @@ def main(input_path):
             #   print(f"This is not a valid instruction")
 
         character = instruction_start + 1       
-
+        
     return sum(valid_instructions)
-
 
 def try_convert(value):
     # Try converting in int or float
