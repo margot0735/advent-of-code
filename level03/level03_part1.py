@@ -7,13 +7,11 @@ import os
 import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from utils.tools import verify_file
 
 def main(input_path):
 
-    # Verify if file exists
-    if not os.path.isfile(input_path):
-        print(f"error : reports file '{input_path}' not found")
-        sys.exit(1)
+    verify_file(input_path)
 
     with open(input_path, 'r') as file:
         instructions = file.read()
