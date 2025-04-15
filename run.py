@@ -17,7 +17,6 @@ def run_all():
     file_path_level02 = os.path.join("level02", "level02_input.txt")
     
     print("result of level01 part 1 :" , level01.level01_part1.main(file_path_level01))
-    
     print("result of level01 part 2 :" ,level01.level01_part2.main(file_path_level01))
     
     print("result of level02 part 1 :" ,level02.level02_part1.main(file_path_level02))
