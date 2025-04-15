@@ -11,7 +11,6 @@ from utils.tools import process_lists
 
 def main(input_path):
     # Load file
-    input_path = "level01_input.txt"
     list1, list2 = process_lists(input_path)
 
     # Pair numbers
