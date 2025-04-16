@@ -31,8 +31,11 @@ def process_list(file_path):
     return list1, list2
 
 def process_arrays(file_path):
-    """function for creating a list of n arrays of shape (1,y) from a txt file"""
-
+    """
+    Function for creating a list of arrays of shape (1, y) from a txt file.
+    Each line in the file is expected to contain space-separated integers.
+    Blank lines are ignored.
+    """
     verify_file(file_path)
 
     arrays_list = []
@@ -40,7 +43,7 @@ def process_arrays(file_path):
     with open(file_path, 'r') as file:
         for line in file:
             if line.strip():                        # Ignore blank lines
-                arrays_list = np.array(list(map(int, line.strip().split())))   # Convert line to array of int
-                arrays_list.append(arrays_list)
+                array = np.array(list(map(int, line.strip().split())))   # Convert line to array of int
+                arrays_list.append(array)
     
     return arrays_list
