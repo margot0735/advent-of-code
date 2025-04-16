@@ -1,10 +1,10 @@
 ## First part of advent of code day 3
 
-# Objective : Compute the sum of the valid instructions (mul(X,Y)) results 
+# Objective : Compute the sum of the valid instructions (mul(X,Y)) 
 
-import numpy as np
 import os
 import sys
+import re
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils.tools import verify_file
@@ -16,44 +16,16 @@ def main(input_path):
     with open(input_path, 'r') as file:
         instructions = file.read()
 
-    valid_instructions = []
-
-    character = 0
-    while character < len(instructions):
-
-        instruction_start = instructions.find("mul(",character)
-        if instruction_start == -1:
-            break
-
-        instruction_end = instructions.find(")",instruction_start)
-        if instruction_end == -1:
-            break
+    valid_instructions = re.findall(r"mul\((\d{1,3}),(\d{1,3})\)", instructions)
+    
+    result = 0
+    for x_str, y_str in valid_instructions:
+        x = int(x_str)
+        y = int(y_str)
+        result += x * y       
         
-        number_sequence = instructions[instruction_start+4:instruction_end]   
-        
-        if ',' in number_sequence:
-            x_string, y_string = number_sequence.split(',', 1)
-            X = try_convert(x_string)
-            Y = try_convert(y_string)
+    return result
 
-            if isinstance(X, (int, float)) and isinstance(Y, (int, float)):
-                valid_instructions.append(X * Y)
-            # else:
-            #   print(f"This is not a valid instruction")
-
-        character = instruction_start + 1       
-        
-    return sum(valid_instructions)
-
-def try_convert(value):
-    # Try converting in int or float
-    try:
-        return int(value)
-    except ValueError:
-        try:
-            return float(value)
-        except ValueError:
-            return value.strip()
 
 #--- Main call --- #
 
