@@ -10,7 +10,7 @@ import os
 import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils.tools import process_reports
+from utils.tools import process_arrays
 
 # --- Main function --- #
 
@@ -47,7 +47,7 @@ def count_tolerated_pattern(report) ->int:
     return pattern
 
 def count_safe_reports(input_path, tolerate=False) ->int:
-    reports_list = process_reports(input_path)
+    reports_list = process_arrays(input_path)
     safe_report = 0
 
     for report in reports_list:

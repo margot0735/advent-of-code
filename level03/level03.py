@@ -8,14 +8,14 @@ import sys
 import re
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils.tools import verify_file
+from utils.tools import parse_file
 
 #--- Main functions --- #
 
 def level03_part1(input_path) -> int:
     """Compute the sum of the valid instructions (mul(X,Y))"""
     
-    memory = parse_instructions(input_path)
+    memory = parse_file(input_path)
     pattern_part1 = r"mul\((\d{1,3}),(\d{1,3})\)"
 
     valid_instructions = re.findall(pattern_part1, memory)
@@ -32,7 +32,7 @@ def level03_part2(input_path) -> int:
     valid_instructions = []
     
     #parse part 2 pattern in txt file
-    memory = parse_instructions(input_path)
+    memory = parse_file(input_path)
 
     # add do and don't in the pattern
     pattern_part2 = r"(mul\((\d{1,3}),(\d{1,3})\)|do\(\)|don't\(\))"
@@ -54,16 +54,6 @@ def level03_part2(input_path) -> int:
 
 
 #--- Utility functions --- #
-
-def parse_instructions(input_path) -> list:
-    """function for reading txt file and returning the text in a list"""
-
-    verify_file(input_path)
-
-    with open(input_path, 'r') as file:
-        memory = file.read()
-
-    return memory
 
 def process_instructions(instructions: list) -> int:
     """function for computing the sum of instructions"""

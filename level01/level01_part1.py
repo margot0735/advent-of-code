@@ -7,11 +7,11 @@ import os
 import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils.tools import process_lists
+from utils.tools import process_list
 
 def main(input_path):
     # Load file
-    list1, list2 = process_lists(input_path)
+    list1, list2 = process_list(input_path)
 
     # Pair numbers
     list1_ranked = np.sort(list1)
