@@ -12,7 +12,7 @@ from utils.tools import verify_file
 
 #--- Main functions --- #
 
-def part1(input_path) -> int:
+def level03_part1(input_path) -> int:
     """Compute the sum of the valid instructions (mul(X,Y))"""
     
     memory = parse_instructions(input_path)
@@ -24,7 +24,7 @@ def part1(input_path) -> int:
 
     return sum_of_instructions
 
-def part2(input_path) -> int:
+def level03_part2(input_path) -> int:
     """Compute the sum of the valid instructions (mul(X,Y)) by considering do and don't instructions"""
     
     #init valid boolean to true 
@@ -83,7 +83,7 @@ def process_instructions(instructions: list) -> int:
 
 if __name__ == "__main__":
     file_path = "level03_input.txt"
-    result_part1 = part1(file_path)
-    result_part2 = part2(file_path)
+    result_part1 = level03_part1(file_path)
+    result_part2 = level03_part2(file_path)
     print("sum of instructions results for part 1:", result_part1) 
     print("sum of instructions results for part 2:", result_part2) 

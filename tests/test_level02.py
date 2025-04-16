@@ -5,7 +5,7 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from level02.level02_part1 import verify_increasing, verify_decreasing, verify_level_difference, main
+from level02.level02 import verify_increasing, verify_decreasing, verify_level_difference, level02_part1, level02_part2
 
 def test_verify_increasing():
     assert verify_increasing(np.array([1, 2, 3])) == True
@@ -23,7 +23,7 @@ def test_verify_level_difference():
     assert verify_level_difference(np.array([1, 5])) == False
     assert verify_level_difference(np.array([1, 2, 6])) == False
 
-def test_part1_full_example(tmp_path):
+def test_full_example(tmp_path):
     # Exemple given in the advend of code
     input_data = """
     7 6 4 2 1
@@ -37,7 +37,9 @@ def test_part1_full_example(tmp_path):
     input_file = tmp_path / "input.txt"
     input_file.write_text(input_data)
     # Verify the example statement
-    assert main(str(input_file)) == 2
+    assert level02_part1(str(input_file)) == 2
+    assert level02_part2(str(input_file)) == 4
+
 
 # Launch tests with pytest
 if __name__ == "__main__":
