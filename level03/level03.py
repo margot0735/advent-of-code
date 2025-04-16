@@ -2,10 +2,12 @@
 
 # Objective : Compute the sum of the valid instructions (mul(X,Y)) 
 
+import numpy as np
 import os
 import sys
 import re
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils.tools import verify_file
 
 #--- Main functions --- #
@@ -25,26 +27,28 @@ def part1(input_path) -> int:
 def part2(input_path) -> int:
     """Compute the sum of the valid instructions (mul(X,Y)) by considering do and don't instructions"""
     
-    #init
+    #init valid boolean to true 
     valid = True
     valid_instructions = []
     
     #parse part 2 pattern in txt file
     memory = parse_instructions(input_path)
 
+    # add do and don't in the pattern
     pattern_part2 = r"(mul\((\d{1,3}),(\d{1,3})\)|do\(\)|don't\(\))"
     
-    for match in re.finditer(pattern_part2, memory):
-        if match.group(1):  # If it's a mul instruction
-            x, y = match.group(2), match.group(3)
-            valid_instructions.append((x, y, valid))
-        elif match.group(0) == "do()":
+    for instruction in re.finditer(pattern_part2, memory):
+        if instruction.group(0).startswith("mul("):                   # check if the full instruction starts with mul 
+            x_str, y_str = instruction.group(2), instruction.group(3) # get instruction in the two first parentheses pairs
+            if x_str is not None and y_str is not None and valid:
+                valid_instructions.append((x_str, y_str))
+        #update valid boolean regarding do and don't instructions
+        elif instruction.group(0) == "do()":
             valid = True
-        elif match.group(0) == "don't()":
+        elif instruction.group(0) == "don't()":
             valid = False
-    
-    # Process instructions if instruction is valid
-    sum_of_instructions = process_instructions([x_y[0:2] for x_y in valid_instructions if x_y[2]])
+
+    sum_of_instructions = process_instructions(valid_instructions)
     
     return sum_of_instructions
 
@@ -52,7 +56,7 @@ def part2(input_path) -> int:
 #--- Utility functions --- #
 
 def parse_instructions(input_path) -> list:
-    """function for reading txt file and finding the requested pattern"""
+    """function for reading txt file and returning the text in a list"""
 
     verify_file(input_path)
 
@@ -62,12 +66,16 @@ def parse_instructions(input_path) -> list:
     return memory
 
 def process_instructions(instructions: list) -> int:
-    
+    """function for computing the sum of instructions"""
+
     result = 0
     for x_str, y_str in instructions:
-        x = int(x_str)
-        y = int(y_str)
-        result += x * y       
+        try:
+            x = int(x_str)
+            y = int(y_str)
+            result += x * y
+        except ValueError:
+            print(f"invalid instruction: mul({x_str}, {y_str})")     
     return result
 
 
