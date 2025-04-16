@@ -1,6 +1,6 @@
-## First part of advent of code day 3
+## Second part of advent of code day 3
 
-# Objective : Compute the sum of the valid instructions (mul(X,Y)) 
+# Objective : Compute the sum of the valid instructions (mul(X,Y)) considering the do and don't instructions
 
 import os
 import sys
