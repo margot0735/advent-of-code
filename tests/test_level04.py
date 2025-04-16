@@ -11,20 +11,20 @@ def test_full_example(tmp_path):
     # Test example given in the advent of code"""
 
     input_data_part1 = """
-    MMMSXXMASM
-    MSAMXMSMSA
-    AMXSXMAAMM
-    MSAMASMSMX
-    XMASAMXAMM
-    XXAMMXXAMA
-    SMSMSASXSS
-    SAXAMASAAA
-    MAMMMXMMMM
-    MXMXAXMASX
+    ....XXMAS.
+    .SAMXMS...
+    ...S..A...
+    ..A.A.MS.X
+    XMASAMX.MM
+    X.....XA.A
+    S.S.S.S.SS
+    .A.A.A.A.A
+    ..M.M.M.MM
+    .X.X.XMASX
     """
     input_file_part1 = tmp_path / "input_part1.txt"
     input_file_part1.write_text(input_data_part1)
-    assert level04_part1(str(input_file_part1)) == 0
+    assert level04_part1(str(input_file_part1)) == 18
 
     # input_data_part2 = 
     # input_file_part2 = tmp_path / "input_part2.txt"

@@ -1,7 +1,6 @@
 # run.py
 
-import level01.level01_part1
-import level01.level01_part2
+from level01.level01 import level01_part1, level01_part2
 
 from level02.level02 import level02_part1, level02_part2
 
@@ -27,8 +26,8 @@ def run_all():
     file_path_level04 = os.path.join("level04", "level04_input.txt")
 
 
-    print("result of level01 part 1 :" , level01.level01_part1.main(file_path_level01))
-    print("result of level01 part 2 :" ,level01.level01_part2.main(file_path_level01))
+    print("result of level01 part 1 :" ,level01_part1(file_path_level01))
+    print("result of level01 part 2 :" ,level01_part2(file_path_level01))
     
     print("result of level02 part 1 :" ,level02_part1(file_path_level02))
     print("result of level02 part 2 :" ,level02_part2(file_path_level02))
