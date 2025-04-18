@@ -1,6 +1,5 @@
-## Advent of code day 1
-
-# Objective : Compute the total distance between pairs from the 2 lists given as input of the problem 
+# file : level01.py
+# description : Advent of code day 1
 
 import numpy as np
 import os
@@ -54,7 +53,7 @@ def process_list(file_path):
     list2 = lists[:, 1] 
 
     return list1, list2
-    
+
 
 # --- Main call --- #
 

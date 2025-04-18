@@ -1,9 +1,7 @@
-## Advent of code day 2
+# file : level02.py
+# description : Advent of code day 1## Advent of code day 2
 
-# Objective : Compute the number of safe report(s) in the report list given as input of the problem
-# A report only counts as safe if both of the following are true:
-# - The levels are either all increasing or all decreasing.
-# - Any two adjacent levels differ by at least one and at most three.
+# Objective : 
 
 import numpy as np
 import os
@@ -21,7 +19,7 @@ def level02_part2(input_path) -> int:
     return count_safe_reports(input_path, tolerate=True)
 
 
-# --- Reports verifications function --- #
+# --- Utility functions --- #
 
 def is_increasing(report) ->bool:      
     return np.all(report[1:] > report[:-1])

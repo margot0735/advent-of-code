@@ -1,6 +1,5 @@
-## Advent of code day 4
-
-# Objective : 
+# file : level04.py
+# description : Advent of code day 1## Advent of code day 4
 
 import numpy as np
 import os
