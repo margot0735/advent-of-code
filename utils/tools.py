@@ -34,7 +34,6 @@ def process_arrays(file_path):
     """
     Function for creating a list of arrays of shape (1, y) from a txt file.
     Each line in the file is expected to contain space-separated integers.
-    Blank lines are ignored.
     """
     verify_file(file_path)
 
