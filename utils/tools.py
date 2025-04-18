@@ -18,18 +18,6 @@ def parse_file(input_path) -> list:
 
     return input_list
 
-def process_list(file_path):
-    """function for creating 2 arrays of shape (x,1) from a txt file"""
-    verify_file(file_path)
-    
-    lists = np.loadtxt(file_path, delimiter=None , dtype=int)
-
-    # Create 2 lists from the txt file
-    list1 = lists[:, 0]  
-    list2 = lists[:, 1] 
-
-    return list1, list2
-
 def process_arrays(file_path):
     """
     Function for creating a list of arrays of shape (1, y) from a txt file.

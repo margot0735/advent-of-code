@@ -7,7 +7,7 @@ import os
 import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils.tools import process_list
+from utils.tools import verify_file
 
 def level01_part1(input_path):
     # Load file
@@ -40,6 +40,21 @@ def level01_part2(input_path):
 
     return total_similarity
 
+
+# #--- Utility functions --- #
+
+def process_list(file_path):
+    """function for creating 2 arrays of shape (x,1) from a txt file"""
+    verify_file(file_path)
+    
+    lists = np.loadtxt(file_path, delimiter=None , dtype=int)
+
+    # Create 2 lists from the txt file
+    list1 = lists[:, 0]  
+    list2 = lists[:, 1] 
+
+    return list1, list2
+    
 
 # --- Main call --- #
 
