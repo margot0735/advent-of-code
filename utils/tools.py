@@ -1,0 +1,36 @@
+import numpy as np
+import os
+import sys
+
+def verify_file(file_path):
+    """function for verifying if txt file exists"""
+    if not os.path.isfile(file_path):
+        print(f"error : lists file '{file_path}' not found")
+        sys.exit(1)
+
+def parse_file(input_path) -> list:
+    """function for reading txt file and returning the text in a list"""
+
+    verify_file(input_path)
+
+    with open(input_path, 'r') as file:
+        input_list = file.read()
+
+    return input_list
+
+def process_arrays(file_path):
+    """
+    Function for creating a list of arrays of shape (1, y) from a txt file.
+    Each line in the file is expected to contain space-separated integers.
+    """
+    verify_file(file_path)
+
+    arrays_list = []
+    # Create list of arrays 
+    with open(file_path, 'r') as file:
+        for line in file:
+            if line.strip():                        # Ignore blank lines
+                array = np.array(list(map(int, line.strip().split())))   # Convert line to array of int
+                arrays_list.append(array)
+    
+    return arrays_list
