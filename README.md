@@ -21,6 +21,6 @@ cd advent-of-code
 
 ## Use
 
-You can run all the solutions for each level as well as the associated tests with : `python run.py`  
-You can run each level independently : `python levelXX/levelXX.py`
-You can run each test independently : `pytest tests\test_levelXX.py 
+You can run all the solutions for each level as well as the associated tests with : `python run.py`     
+You can run each level independently : `python levelXX\levelXX.py`  
+You can run each test independently : `pytest tests\test_levelXX.py`  
