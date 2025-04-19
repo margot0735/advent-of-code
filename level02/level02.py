@@ -71,9 +71,9 @@ def process_arrays(file_path):
 # --- Main call --- #
 
 if __name__ == "__main__":
-    file_path = "level02_input.txt"
-    result_part1 = level02(input_path,False)
-    result_part2 = level02(input_path,True)
+    file_path = os.path.join(os.path.dirname(__file__), "level02_input.txt")
+    result_part1 = level02(file_path,False)
+    result_part2 = level02(file_path,True)
     print("initial safe report count:", result_part1) 
     print("total safe report count:", result_part2) 
 

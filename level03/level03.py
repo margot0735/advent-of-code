@@ -70,7 +70,7 @@ def process_instructions(instructions: list) -> int:
 #--- Main call --- #
 
 if __name__ == "__main__":
-    file_path = "level03_input.txt"
+    file_path = os.path.join(os.path.dirname(__file__), "level03_input.txt")
     result_part1 = level03_part1(file_path)
     result_part2 = level03_part2(file_path)
     print("sum of instructions results for part 1:", result_part1) 

@@ -97,7 +97,7 @@ def word_is_found_part2(grid, word, word_positions, i, j, dx, dy) -> bool:
 #--- Main call --- #
 
 def main():
-    file_path = "level04_input.txt"
+    file_path = os.path.join(os.path.dirname(__file__), "level04_input.txt")
     result_part1 = level04_part1(file_path)
     result_part2 = level04_part2(file_path)
     print("number of 'XMAS' found:", result_part1) 
