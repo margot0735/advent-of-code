@@ -1,4 +1,6 @@
-import numpy as np
+# file : tools.py
+# description : utilities functions
+
 import os
 import sys
 

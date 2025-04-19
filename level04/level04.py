@@ -1,7 +1,6 @@
 # file : level04.py
-# description : Advent of code day 1## Advent of code day 4
+# description : Advent of code day 4
 
-import numpy as np
 import os
 import sys
 
@@ -46,7 +45,7 @@ def level04_part2(input_path) -> int:
 
     return word_count
 
-# #--- Utility functions --- #
+#--- Utility functions --- #
 
 def clean_text(input_path):
     """function for cleaning text file and creating a list of characters lists"""

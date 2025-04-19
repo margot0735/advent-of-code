@@ -17,7 +17,7 @@ cd advent-of-code
 - `level01/`, `level02/`, `level03/`, `level04/`: Folders containing the Python solution script and the corresponding '.txt' input file for each level.
 - `tests/`: Folder containing functional tests for each level.
 - `utils/tools.py`: Utility functions for input files.
-- `run_all.py`: A script that runs all the level solutions and their associated tests.
+- `run.py`: A script that runs all the level solutions and their associated tests.
 
 ## Use
 

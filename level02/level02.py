@@ -1,7 +1,5 @@
 # file : level02.py
-# description : Advent of code day 1## Advent of code day 2
-
-# Objective : 
+# description : Advent of code day 2
 
 import numpy as np
 import os

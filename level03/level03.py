@@ -1,7 +1,6 @@
 # file : level03.py
-# description : Advent of code day 1## Advent of code day 3
+# description : Advent of code day 3
 
-import numpy as np
 import os
 import sys
 import re

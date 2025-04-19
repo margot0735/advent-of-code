@@ -1,4 +1,6 @@
-import numpy as np
+# file : test_level02.py
+# description : functionnal test of level02 puzzles
+
 import pytest
 import sys
 import os
