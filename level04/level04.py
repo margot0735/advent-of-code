@@ -10,43 +10,51 @@ from utils.tools import parse_file
 
 #--- Main functions --- #
 
-def level04(input_path, part_id) -> int: 
+def level04_part1(input_path) -> int: 
 
-    # clean input file 
-    input_list = parse_file(input_path).strip().splitlines()        # create a list of strings, each row is a string
-    word_search = [list(row.strip()) for row in input_list]         # create a matrix of characters
-
+    word_search = clean_text(input_path)         
 
     rows, cols = len(word_search), len(word_search[0])
     word_count = 0
 
-    match part_id:
-        case 1:
-            word = "XMAS"
-            directions = [(1, 0), (-1, 0), (0, 1), (0, -1), (1, -1), (-1, 1), (-1, -1), (1, 1)]     #8 possible directions
-            for i in range(rows):
-                for j in range(cols):
-                    for dx, dy in directions:
-                        if word_is_found_part1(word_search, word, i, j, dx, dy):
-                            word_count += 1
-
-        case 2:
-            word = "MAS"
-            word_positions = [(0, 0), (0, 2), (1, 1), (2, 0), (2, 2)]   
-            directions = [(1, 1), (1, -1)]      #starting from (0,0), there is 2 possible directions = 2 diagonals
-            for i in range(rows):
-                for j in range(cols):
-                    for dx, dy in directions:
-                        if word_is_found_part2(word_search, word, word_positions, i, j, dx, dy):
-                            word_count += 1
-                            break  # only count 1 match
+    word = "XMAS"
+    directions = [(1, 0), (-1, 0), (0, 1), (0, -1), (1, -1), (-1, 1), (-1, -1), (1, 1)]     #8 possible directions
+    for i in range(rows):
+        for j in range(cols):
+            for dx, dy in directions:
+                if word_is_found_part1(word_search, word, i, j, dx, dy):
+                    word_count += 1
 
     return word_count
 
+def level04_part2(input_path) -> int: 
+
+    word_search = clean_text(input_path)         
+
+    rows, cols = len(word_search), len(word_search[0])
+    word_count = 0
+
+    word = "MAS"
+    word_positions = [(0, 0), (0, 2), (1, 1), (2, 0), (2, 2)]   
+    directions = [(1, 1), (1, -1)]      #starting from (0,0), there is 2 possible directions = 2 diagonals
+    for i in range(rows):
+        for j in range(cols):
+            for dx, dy in directions:
+                if word_is_found_part2(word_search, word, word_positions, i, j, dx, dy):
+                    word_count += 1
+                    break  # only count 1 match
+
+    return word_count
 
 # #--- Utility functions --- #
 
+def clean_text(input_path):
+    """function for cleaning text file and creating a list of characters lists"""
+    input_list = parse_file(input_path).strip().splitlines()        # create a list of strings, each row is a string
+    return [list(row.strip()) for row in input_list]  
+
 def word_is_found_part1(grid, word, i, j, dx, dy) ->bool:
+    """find the word in a grid in all possible directions and return true if the word is found"""
     word_length = len(word)
     rows = len(grid)
     cols = len(grid[0])
@@ -59,6 +67,7 @@ def word_is_found_part1(grid, word, i, j, dx, dy) ->bool:
     return True
 
 def word_is_found_part2(grid, word, word_positions, i, j, dx, dy) -> bool:
+    """find 2 diagonals of a word in 3 letters shaping a X and return true if the word is found"""
     rows = len(grid)
     cols = len(grid[0])
 
@@ -90,8 +99,8 @@ def word_is_found_part2(grid, word, word_positions, i, j, dx, dy) -> bool:
 
 def main():
     file_path = "level04_input.txt"
-    result_part1 = level04(file_path,1)
-    result_part2 = level04(file_path,2)
+    result_part1 = level04_part1(file_path)
+    result_part2 = level04_part2(file_path)
     print("number of 'XMAS' found:", result_part1) 
     print("number of X-shaped 'MAS' found:", result_part2)
 

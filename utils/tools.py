@@ -17,20 +17,3 @@ def parse_file(input_path) -> list:
         input_list = file.read()
 
     return input_list
-
-def process_arrays(file_path):
-    """
-    Function for creating a list of arrays of shape (1, y) from a txt file.
-    Each line in the file is expected to contain space-separated integers.
-    """
-    verify_file(file_path)
-
-    arrays_list = []
-    # Create list of arrays 
-    with open(file_path, 'r') as file:
-        for line in file:
-            if line.strip():                        # Ignore blank lines
-                array = np.array(list(map(int, line.strip().split())))   # Convert line to array of int
-                arrays_list.append(array)
-    
-    return arrays_list

@@ -5,7 +5,7 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from level04.level04 import level04
+from level04.level04 import level04_part1, level04_part2
 
 def test_full_example(tmp_path):
     # Test example given in the advent of code"""
@@ -24,9 +24,9 @@ def test_full_example(tmp_path):
     """
     input_file = tmp_path / "input.txt"
     input_file.write_text(input_data)
-    assert level04(str(input_file),1) == 18
+    assert level04_part1(str(input_file)) == 18
 
-    assert level04(str(input_file),2) == 9
+    assert level04_part2(str(input_file)) == 9
 
 # Launch tests with pytest
 if __name__ == "__main__":
