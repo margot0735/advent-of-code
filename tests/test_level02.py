@@ -1,11 +1,13 @@
-import numpy as np
+# file : test_level02.py
+# description : functionnal test of level02 puzzles
+
 import pytest
 import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from level02.level02 import is_increasing, is_decreasing, has_valid_level_difference, level02_part1, level02_part2
+from level02.level02 import is_increasing, is_decreasing, has_valid_level_difference, level02
 
 def test_full_example(tmp_path):
     # Exemple given in the advend of code
@@ -21,8 +23,8 @@ def test_full_example(tmp_path):
     input_file = tmp_path / "input.txt"
     input_file.write_text(input_data)
     # Verify the example statement
-    assert level02_part1(str(input_file)) == 2
-    assert level02_part2(str(input_file)) == 4
+    assert level02(str(input_file),False) == 2
+    assert level02(str(input_file),True) == 4
 
 
 # Launch tests with pytest

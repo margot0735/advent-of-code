@@ -58,7 +58,7 @@ def process_list(file_path):
 # --- Main call --- #
 
 if __name__ == "__main__":
-    file_path = "level01_input.txt"
+    file_path = os.path.join(os.path.dirname(__file__), "level01_input.txt")
     result_part1 = level01_part1(file_path)
     result_part2 = level01_part2(file_path)
     print("total distance:", result_part1) 
