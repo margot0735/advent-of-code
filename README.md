@@ -18,6 +18,7 @@ cd advent-of-code
 - `tests/`: Folder containing functional tests for each level.
 - `utils/tools.py`: Utility functions for input files.
 - `run_all.py`: A script that runs all the level solutions and their associated tests.
+
 ## Use
 
 You can run all the solutions for each level as well as the associated tests with : `python run_all.py`  
